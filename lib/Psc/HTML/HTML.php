@@ -59,7 +59,8 @@ class HTML {
                        '-\\1'
                   );
     $stringValue = mb_strtolower($stringValue);
-    $stringValue = str_replace("--", "-", $stringValue);
+    $stringValue = Preg::replace($stringValue, "/-+/", "-");
+    $stringValue = trim($stringValue, '-');
     
     return $stringValue;
   }
